@@ -1,0 +1,49 @@
+/******************************************************************************
+**
+**                  [[[[[    [[[[[    [[[[[   [[[  [[   [[[[[           
+**                 [[[  [[  [[[[     [[[      [[[  [[  [[[[              
+**                 [[[  [[   [[[[    [[[      [[[  [[   [[[[             
+**                 [[[  [[    [[[[   [[[      [[[  [[    [[[[            
+**                  [[[[[   [[[[[     [[[[[    [[[[[[  [[[[[  
+**
+**
+**-----------------------------------------------------------------------------
+** file name:           oscus.h
+** data:                mm/dd/yy
+** version:             1.x
+** descriptions:        
+**-----------------------------------------------------------------------------
+** created by:          songg
+** created date:        mm/dd/yy
+** version:             1.x
+** brief:
+**=============================================================================
+** OSCUS is an open source OS.
+**
+** Features:
+**    - Co-operative multitasking, without complex stack management
+**    - Two-level scheduling mechanics, priority-based(maximum eq 0x04)
+**    - and round-robin in each priority level(maximum eq 0x04)
+**    - Maximum task number eq 16
+**    - Rapid task switch, time complexity O(1)
+**     
+**
+** Model:
+**    - Task priority ranges from 0x00 to 0x0F
+**    - When there are no tasks in the higher priority level group,
+**      controller will be give to tasks in the lower priority
+**    - When two or more tasks have the same priority, 
+**      controller will be given to the next after the previous run-to-completion
+**    - Task 0 as idle routine, must be defined
+**
+**      Round-robing scheduling in each group
+**      --->
+**      | F | E | D | C |    - priority level 3  - highest    | Priority-based 
+**      | B | A | 9 | 8 |    - priority level 2               V scheduling
+**      | 7 | 6 | 5 | 4 |    - priority level 1               
+**      | 3 | 2 | 1 | 0 |    - priority level 0  - lowest   
+**
+**
+** Examples: 
+**
+******************************************************************************/
