@@ -36,7 +36,7 @@
 **      controller will be given to the next after the previous run-to-completion
 **    - Task 0 as idle routine, must be defined
 **
-**      Round-robing scheduling in each group
+**      Round-robin scheduling in each group
 **      --->
 **      | F | E | D | C |    - priority level 3  - highest    | Priority-based 
 **      | B | A | 9 | 8 |    - priority level 2               V scheduling
