@@ -15,7 +15,7 @@
 **-----------------------------------------------------------------------------
 ** created by:          songg
 ** created date:        mm/dd/yy
-** version:             1.x
+** version:             0.0.1
 ** brief:        
 ******************************************************************************/
 #ifndef _OSCUS_CONFIG_H_
@@ -26,7 +26,7 @@
  *
  *
  *****************************************************************************/
- #undef _OSCUS_CR_LOGO_
+ #define _OSCUS_CR_LOGO_
  #define _OSCUS_CR_DSK_
  #define _OSCUS_CR_TASK_
  #undef  _OSCUS_CR_TASK_EX_ 

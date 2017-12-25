@@ -15,7 +15,7 @@
 **-----------------------------------------------------------------------------
 ** created by:          songg
 ** created date:        mm/dd/yy
-** version:             1.x
+** version:             0.0.1
 ** brief:        
 ******************************************************************************/
  
@@ -227,7 +227,7 @@
       return;
     }
       
-    BitY = CR_DBIT_FSB(crPendTskGrp);    
+    BitY = CR_DBIT_FSB(crRdyTskGrp);    
     do{
       BitZ = crPendTskRow[BitY];
       BitX = CR_DBIT_FSB(BitZ);      

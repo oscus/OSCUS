@@ -15,7 +15,7 @@
 **-----------------------------------------------------------------------------
 ** created by:          songg
 ** created date:        mm/dd/yy
-** version:             1.x
+** version:             0.0.1
 ** brief:
 **=============================================================================
 ** OSCUS is an open source OS.
@@ -53,10 +53,13 @@
 **    static crByte i = 0;
 **    CR_BEGIN;
 **   
-**    if( i++ == 0xFF ){
-**        crPrintf( "crTask1st i: %d\r\n", i);
-**        crReturn;
-**    } 
+**    do
+**    {
+**        i++;
+**        crPrintf( "crTask1st begin: %d\r\n", i);
+**        crDelay( 5 );
+**        crPrintf( "crTask1st end\r\n");
+**    }while( 1 )
 **     
 **    CR_END;   
 ** }
@@ -66,14 +69,13 @@
 **    static crByte i = 0;
 **    CR_BEGIN;
 **   
-**    while( 1 )
+**    do
 **    {
 **        i++;
 **        crPrintf( "crTask2nd begin: %d\r\n", i);
-**        crDelay( 5000 );
+**        crDelay( 5 );
 **        crPrintf( "crTask2nd end\r\n");
-**        crDelay( 5000 );
-**    }
+**    }while( 1 )
 **     
 **    CR_END;   
 ** }
@@ -89,7 +91,7 @@
 **    crStart();
 ** }
 **
-** Otherwise, crSysTimer() should be called in a SYSTEM TIMER ISR.
+** Otherwise, crSysTicks() should be called in a SYSTEM TIMER ISR.
 **
 **=============================================================================
 **    THE BIRD IS FLYING,

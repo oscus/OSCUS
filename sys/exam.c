@@ -15,7 +15,7 @@
 **-----------------------------------------------------------------------------
 ** created by:          songg
 ** created date:        mm/dd/yy
-** version:             1.x
+** version:             0.0.1
 ** brief:        
 ******************************************************************************/
 
@@ -59,21 +59,6 @@
         crPrintf( "crTsk2 begin: %d\r\n", i);
         crDelay( 6 );
         crPrintf( "crTsk2 end\r\n");
-    }while( 1 );       
-    
-    CR_END;   
- }
- 
-  void crTsk7()
- {
-    static crByte i = 0;
-    CR_BEGIN;
-     
-    do{
-        i++;
-        crPrintf( "crTsk7 begin: %d\r\n", i);
-        crDelay( 6 );
-        crPrintf( "crTsk7 end\r\n");
     }while( 1 );       
     
     CR_END;   
@@ -204,7 +189,7 @@
     do{
         i++;
         crPrintf( "crTsk13 begin: %d\r\n", i);
-        crDelay( 8 );
+        crDelay( 6 );
         crPrintf( "crTsk13 end\r\n");
     }while( 1 );       
     
@@ -250,15 +235,14 @@
 
  void crExamTest()
  {
-    #define _CR_TEST_SCHED_
+    #define _CR_TEST_SEM_
 
     crTaskCreate( crTsk0,  0);
      
     #ifdef _CR_TEST_SCHED_
       crTaskCreate( crTsk1, 1);
       crTaskCreate( crTsk2, 2);  
-      crTaskCreate( crTsk7, 7); 
-      crTaskCreate( crTsk13, 13); 
+      //crTaskCreate( crTsk13, 13); 
     #endif     
      
     #ifdef _CR_TEST_SEM_
