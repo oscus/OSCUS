@@ -58,7 +58,7 @@
     crMemcpy( msg, crMQBTbl[mqbid].msg, *len );
     
     crMQTbl[id].head = CR_ALIST_IDX( mqbid );
-	CR_ALIST_LINK( mqbid, crMQBHead );
+    CR_ALIST_LINK( mqbid, crMQBHead );
     crMQBHead = mqbid;
     crMQBUsed--;
     
@@ -93,7 +93,7 @@
     
     CR_PEND_LOCK();
     CR_TASK_PEND();
-	CR_PEND_UNLOCK();
+    CR_PEND_UNLOCK();
      
     //crAssert("crMQPend end\r\n");
     return;    
@@ -120,14 +120,14 @@
     if( (crPendTskIdx = crMQTbl[id].tskid) == CR_INVALID ){  
       mqbid = crMQBHead;
       crMQBHead = CR_ALIST_IDX(crMQBHead);   	
-	  CR_ALIST_LINK( mqbid, CR_INVALID );
+      CR_ALIST_LINK( mqbid, CR_INVALID );
       crMemcpy( crMQBTbl[mqbid].msg, msg, len); 
       crMQBTbl[mqbid].len = len;
 
       if( crMQTbl[id].head == CR_INVALID ){
-    	crMQTbl[id].head = mqbid;
+        crMQTbl[id].head = mqbid;
       }else{
-		CR_ALIST_LINK( crMQTbl[id].tail, mqbid );
+        CR_ALIST_LINK( crMQTbl[id].tail, mqbid );
       }
       crMQTbl[id].tail = mqbid; 
       crMQTbl[id].cnt++;  	    
@@ -165,9 +165,9 @@
      	  
     for( i=0; i<(CR_MQ_B_NUM - 1); i++ )
     {
-	  CR_ALIST_LINK( i, i+1 );
+      CR_ALIST_LINK( i, i+1 );
     }
-	CR_ALIST_LINK( i, CR_INVALID );
+    CR_ALIST_LINK( i, CR_INVALID );
     crMQBHead = 0;
     crMQBUsed = 0;
     
